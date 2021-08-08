@@ -25,10 +25,8 @@ decimals: public(uint256)
 #       The _KeyType will become a required parameter for the getter and it will return _ValueType.
 #       See: https://vyper.readthedocs.io/en/v0.1.0-beta.8/types.html?highlight=getter#mappings
 balanceOf: public(HashMap[address, uint256])
-
 # By declaring `allowance` as public, vyper automatically generates the `allowance()` getter
 allowance: public(HashMap[address, HashMap[address, uint256]])
-
 # By declaring `totalSupply` as public, we automatically create the `totalSupply()` getter
 totalSupply: public(uint256)
 minter: address
