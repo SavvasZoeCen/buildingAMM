@@ -37,7 +37,17 @@ def provideLiquidity(tokenA_addr: address, tokenB_addr: address, tokenA_quantity
 def tradeTokens(sell_token: address, sell_quantity: uint256):
 	assert sell_token == self.tokenA.address or sell_token == self.tokenB.address
 	#Your code here
-  
+  	if (sell_token == self.tokenA.address):
+		self.tokenA.transfer(self.owner, sell_quantity)
+		self.tokenB.transferFrom(self.owner, self, sell_quantity)
+		self.tokenAQty -= sell_quantity
+		self.tokenBQty += sell_quantity
+	else:
+		self.tokenB.transfer(self.owner, sell_quantity)
+		self.tokenA.transferFrom(self.owner, self, sell_quantity)
+		self.tokenBQty -= sell_quantity
+		self.tokenAQty += sell_quantity
+
 
 # Owner can withdraw their funds and destroy the market maker
 @external
