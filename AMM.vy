@@ -37,7 +37,7 @@ def provideLiquidity(tokenA_addr: address, tokenB_addr: address, tokenA_quantity
 def tradeTokens(sell_token: address, sell_quantity: uint256):
 	assert sell_token == self.tokenA.address or sell_token == self.tokenB.address
 	#Your code here
- 	if sell_token == self.tokenA.address:
+ 	if (sell_token == self.tokenA.address):
 		self.tokenA.transferFrom(sell_token, self.tokenB.address, sell_quantity)
 		self.tokenAQty -= sell_quantity
 		self.tokenBQty += sell_quantity
